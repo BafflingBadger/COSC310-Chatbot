@@ -18,11 +18,15 @@
 
 `pip install spacy`
 
-download spacy model
+`pip install googlemaps`
+
+#### Download spacy model
 
 `python -m spacy download en_core_web_sm`
 
-When first running the program, it may ask you to download certain NTLK packages. The only way I found I could download them was by running the code below:
+#### Troubleshooting
+
+When first running the program, it may ask you to download certain NLTK packages. The only way I found I could download them was by running the code below:
 
 ```python
 import nltk
@@ -38,8 +42,11 @@ else:
 nltk.download()
 ```
 
-Link to source can be found here: https://stackoverflow.com/questions/38916452/nltk-download-ssl-certificate-verify-failed
+Link to solution source can be found here: https://stackoverflow.com/questions/38916452/nltk-download-ssl-certificate-verify-failed
 
+------
+
+### How to use the chatbot 
 
 #### Train ChatBot
 
@@ -60,7 +67,7 @@ The bot has been updated to handle topics that are out of its range, and respond
 <img width="365" src="https://user-images.githubusercontent.com/77344004/159347118-3acbb02b-7fa1-46a6-92b5-55f6d9fd20d5.png">
 
 
-#### additional conversation topic: Schizophrenia
+#### Additional conversation topic: Schizophrenia
 
 Several conversation structures which indicate symptoms of schizophrenia have been added to the bots repertoire, in particular hallucinations and general disorganization. There is also referal to proper health resources if the bot detects these symptoms.
 
@@ -86,3 +93,18 @@ The Synonym Recognation function uses WordNet (collection of words and vocabular
 Named Entity Recognition is implemented through [spaCy](https://spacy.io) (it can also be installed using pip for python). It allows the program to differentiate between different named objects, such as Organizations, People, Geo-Political Entities, Quantities, and many more. The chatbot will mainly make use of this by identifying organizations when asking about work habits. The chabot is able to use the context of the sentence and pretrained knowledge to determine that 'K2' and the 'UN' are both organizations, and favour dialogues responding to work:
 
 <img width="365" src="https://user-images.githubusercontent.com/77344004/158700501-0cc9f567-bd46-4411-a240-c04c67ab2a18.png">
+
+------
+
+### List of APIs (for individual project)
+
+#### Google Places API
+
+Originally, our mental health chatbot couldn’t actually refer the user to a real life therapist. The chatbot could only offer website links/articles to address the user’s symptoms. Now that the Google Places API has been introduced, our chatbot can now refer to the user to a real life therapist when the user requests it. The chatbot will display the name of the therapy clinic, the address, phone number, and rating (out of 5 stars). The therapy clinic that gets recommended by the chatbot is the first one that pops up as if you were searching for a mental health therapist on Google.  
+
+
+#### Google Directions API
+
+Considering I implemented the Google Places API, I felt it was only right to compliment it with the Google Directions API. Basically, after the user requests a “place” (ie. mental health clinic), the chatbot displays the place information and also saves that place in memory. Then when the user asks something like “how do I get there” or  “what are the directions to get there”, the chatbot will display directions from the user’s location to the place that was last saved in memory.
+
+Note: A mental health clinic is not the only place/directions that can be requested by the user. I am merely using it as an example for the context of my chatbot. 
