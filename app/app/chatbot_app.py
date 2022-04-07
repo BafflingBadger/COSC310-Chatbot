@@ -15,10 +15,10 @@ from googlePlacesAPI import get_place, get_directions
 
 
 # load the trained model and pickle files
-intents = json.loads(open('app/chatbot/data/intents.json').read())
-model = load_model('app/chatbot/models/trained_chatbot_model.h5')
-words = pickle.load(open('app/chatbot/data/words.pkl', 'rb'))
-classes = pickle.load(open('app/chatbot/data/classes.pkl', 'rb'))
+intents = json.loads(open('app/app/data/intents.json').read())
+model = load_model('app/app/models/trained_chatbot_model.h5')
+words = pickle.load(open('app/app/data/words.pkl', 'rb'))
+classes = pickle.load(open('app/app/data/classes.pkl', 'rb'))
 
 
 # spacy 'brain'
