@@ -1,7 +1,7 @@
 import spacy
 from spacy import displacy
 import unittest
-from app.chatbot.chatbot_app import ner
+from app.app.chatbot_app import ner
 
 class TestNER(unittest.TestCase):
     def test_persons(self):

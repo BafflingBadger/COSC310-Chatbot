@@ -160,11 +160,6 @@
         "responses": ["Hope you feel better! Goodbye."],
         "context": [""]
     },
-    { "tag": "hallucinations",
-        "patterns": ["I have been seeing things", "I have been having hallucinations", "I have been hearing things", "I have been hearing voices", ""],
-        "responses": ["Okay. Have you noticed a decrease in organization in your life? (ex. extremely messy house, massivedly decreased self-care, unable to do tasks you were before"],
-        "context": [""]
-    },
     { "tag": "positive disorganization",
         "patterns": ["I have noticed a decrease in organization", "I have been disorganized", "I've been disorganized", "Yes", "Yes, I have", "I've been more disorganized recently", "I have been extra disorganized"],
         "responses": ["Ok. Hallucinations and disorganization are common symptoms of schizophrenia. Please follow this link for more information, but you must see a doctor in order to get tested: https://www.nami.org/About-Mental-Illness/Mental-Health-Conditions/Schizophrenia"],
@@ -206,9 +201,30 @@
         "responses": ["I'm sorry, I cannot talk about cars, please ask me to get to know you, or tell me a mental health symptom you are experiencing"],
         "context": [""]
     },
-    {"tag": "climate change",
+    {"tag": "climate_change",
         "patterns": ["can you tell me about global warming", "what do you know about global warming", "can you tell me about climate change", "what do you know about climate change", "have you heard about the icebergs melting"],
         "responses": ["Climate change is a lie. Please ask me to get to know you, or tell me a mental health symptom you are experiencing"],
         "context": [""]
+    },
+    {"tag": "places_health",
+        "patterns": ["Is there a mental health clinic nearby?", "Where can I go to talk to a mental health therapist?", "Where is a mental health clinic that I can go to?", "Do you know of any mental health clinics nearby?", "Is there a real person I can speak to about my mental health?"],
+        "responses": [""],
+        "context": [""]
+    },
+    {"tag": "places_restaurant",
+        "patterns": ["Where can I get a milkshake?", "Where's the closest McDonalds?", "Where can I buy a burger?"],
+        "responses": [""],
+        "context": [""]
+    },
+    {"tag": "places_climbing",
+        "patterns": ["Where can I go rock climbing?", "Is there anywhere I can go rock climbing?"],
+        "responses": [""],
+        "context": [""]
+    },
+    {"tag": "directions",
+        "patterns": ["What are the directions to get there?", "How do I get there?", "How do I get there from my house?", "What are the directions?", "Can I have some directions to get there?"],
+        "responses": [""],
+        "context": [""]
     }
+
 ]}

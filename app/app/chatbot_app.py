@@ -11,6 +11,7 @@ import tkinter                                  # used to build user interface
 from tkinter import *
 import spacy
 from spacy import displacy
+from googlePlacesAPI import get_place, get_directions
 
 
 # load the trained model and pickle files
@@ -93,14 +94,28 @@ def predict_class(sentence, model):
     return return_list
 
 
-# function that returns a random response from the json file based on what the predicted class is 
+# function that returns a random response from the json file based on what the predicted class is
+place_id = 0 
 def getResponse(predicted_classes, intents_json):
+    global place_id
     tag = predicted_classes[0]['class']
     list_of_intents = intents_json['intents']
-    for i in list_of_intents:
-        if(i['tag']== tag):
-            result = random.choice(i['responses'])
-            break
+    if(tag == 'places_health'):
+        details, place_id = get_place('mental health therapy kelowna')
+        result = details[0] + ' is located at ' + details[1] + '. Their phone number is ' + details[2] + ' and they have a ' + str(details[3]) + ' star rating. You should check them out!'
+    elif(tag == 'places_restaurant'):
+        details, place_id = get_place('mcdonalds kelowna')
+        result = 'Check out the ' + details[0] + ' at ' + details[1] + '.'
+    elif(tag == 'places_climbing'):
+        details, place_id = get_place('rock climbing kelowna')
+        result = details[0] + ' offers rock climbing in Kelowna. They are located at ' + details[1] + '. Their phone number is ' + details[2] + ' and they have a ' + str(details[3]) + ' star rating. You should check them out!'
+    elif(tag == 'directions'):
+        result = get_directions(place_id)
+    else:
+        for i in list_of_intents:
+            if(i['tag']== tag):
+                result = random.choice(i['responses'])
+                break
     return result
 
 # function that returns a chatbot response given an input sentence
